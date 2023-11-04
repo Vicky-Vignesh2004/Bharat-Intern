@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body{
+            background-image: url("img/temp2.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-size: 100% 100%;
+            
+        }
+        .div1{
+            color: rgb(0, 0, 0);
+            border: 6px solid rgb(173, 95, 0);
+            border-radius: 20%;
+            padding: 5px;
+            position: absolute  ;
+            left: 10%;
+            width: 500px;
+            height: 500px;
+
+        }
+        input{
+            text-align: center;
+            font-size: 18pt;
+            height: 25px;
+            width : 250px;
+            border: 4px double rgb(0, 0, 0);
+        }
+        label{
+            font-size: larger;
+        }
+    </style>
+    
+    
+</head>
+<body >  
+    <div class="div1" style="text-align: center; font-size: larger;">    
+    <h1><b><u>Temperature Converter</u></b></h1>
+    <p>Type a value in the Input field and press enter to convert the values:</p>
+
+    <form>
+    <label><b><u>Fahrenheit:</u></b><br></label>
+    <input id="inputFahrenheit"  type="number"  placeholder="Fahrenheit"  ><br>
+    <br>
+    <label><b><u>Celsius:</u></b><br></label>
+    <input id="inputCelsius" type="number"  placeholder="Celsius"  ><br>
+    <br>
+    <label><b><u>Kelvin:</u></b><br></label>
+    <input id="inputKelvin"  type="number" placeholder="Kelvin"  ><br><br>
+    <button type="reset" >Clear all</button>
+
+    </form>
+
+    <script type="text/javascript">
+        
+        
+        var inputf = document.getElementById('inputFahrenheit');
+        var inputc = document.getElementById('inputCelsius');
+        var inputk = document.getElementById('inputKelvin');
+
+        inputf.addEventListener('change', function() {inputc.value = (inputf.value-32)/1.8;});
+        inputf.addEventListener('change', function() {inputk.value =( (inputf.value-32)/1.8)+273.15;});
+
+        inputc.addEventListener('change', function() {inputf.value = (inputc.value*1.8)+32;});
+        inputc.addEventListener('change', function() {inputk.value = (273.15 + (1*inputc.value));});
+        
+        inputk.addEventListener('change', function() {inputf.value = ((inputk.value-273.15)*1.8)+32;});
+        inputk.addEventListener('change', function() {inputc.value = (inputk.value-273.15);});
+  
+    </script>
+
+</body>
+</html>
